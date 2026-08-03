@@ -5,31 +5,38 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
   };
 
-  outputs = { self, nixpkgs }:
+  outputs =
+    { self, nixpkgs }:
     let
-      supportedSystems = [ "x86_64-linux" "aarch64-linux" ];
+      supportedSystems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
       pkgsFor = system: import nixpkgs { inherit system; };
 
-      version = "17.2.4";
+      version = "17.2.5";
 
       srcInfo = {
         x86_64-linux = {
           url = "https://github.com/can1357/oh-my-pi/releases/download/v${version}/omp-linux-x64";
-          hash = "sha256-pucIbzuAf2ilsItJWX9DSeXONzZWObevXpyP41mYmEA=";
+          hash = "sha256-/O5ID4x2yEAkVoTe4h1sazJLreJbKnJjvE646EbFAtM=";
         };
         aarch64-linux = {
           url = "https://github.com/can1357/oh-my-pi/releases/download/v${version}/omp-linux-arm64";
-          hash = "sha256-rEc8v2HMGiYH0og5MOZB4V6Oedos3UL/7I1wGthaIZw=";
+          hash = "sha256-VAS7YJ48Y0rNkaGcDHu6x2xD2A7xVzYqfFQw9VlUNdI=";
         };
       };
 
-      licenseSrc = pkgs: pkgs.fetchurl {
-        url = "https://raw.githubusercontent.com/can1357/oh-my-pi/v${version}/LICENSE";
-        hash = "sha256-VFY24ZOG09Tgrm13NUUnSZmZw+v7ymG5+lqk6tfAswg=";
-      };
+      licenseSrc =
+        pkgs:
+        pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/can1357/oh-my-pi/v${version}/LICENSE";
+          hash = "sha256-VFY24ZOG09Tgrm13NUUnSZmZw+v7ymG5+lqk6tfAswg=";
+        };
 
-      ompFor = system:
+      ompFor =
+        system:
         let
           pkgs = pkgsFor system;
           info = srcInfo.${system};
