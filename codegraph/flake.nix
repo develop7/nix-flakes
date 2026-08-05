@@ -10,12 +10,19 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, codegraph-src }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+      codegraph-src,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = import nixpkgs { inherit system; };
         nodejs = pkgs.nodejs_22;
-        version = "1.4.1";
+        version = "1.5.0";
       in
       {
         packages = rec {
@@ -24,8 +31,7 @@
             inherit version;
             src = codegraph-src;
 
-            # Replace on first build. The error will print the real hash.
-            npmDepsHash = "sha256-HVd/0c0i0g+TjPE7hCXe2GPgbTwMb3nBoepTa3Dbkvo=";
+            npmDepsHash = "sha256-7cGlc4q+9DoPsyPDos5BfE9n2Qmvlvl8QEDiD/y6+e0=";
 
             nodejs = nodejs;
 
@@ -71,5 +77,6 @@
             rustup target add "$(rustc -vV | sed -n 's|host: ||p')" 2>/dev/null || true
           '';
         };
-      });
+      }
+    );
 }

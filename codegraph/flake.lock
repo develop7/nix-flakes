@@ -3,11 +3,11 @@
     "codegraph-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1784393660,
-        "narHash": "sha256-CGMqIcfV4rf6yn75Z1AB/bjzVjGBxIDIkDmfB+3P/pg=",
+        "lastModified": 1785923444,
+        "narHash": "sha256-L2UrAofcWIUBi6TP5sdQR8F3zG+L5Dw1XXi3eFYAmvo=",
         "owner": "TontineTrust",
         "repo": "codegraph",
-        "rev": "951b5a96d4f5dfb2f8e66500d296faa559574ae1",
+        "rev": "59a842c943cb960815338876c32da916615e6bd7",
         "type": "github"
       },
       "original": {
