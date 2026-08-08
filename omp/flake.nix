@@ -15,16 +15,16 @@
       forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
       pkgsFor = system: import nixpkgs { inherit system; };
 
-      version = "17.2.10";
+      version = "17.2.11";
 
       srcInfo = {
         x86_64-linux = {
           url = "https://github.com/can1357/oh-my-pi/releases/download/v${version}/omp-linux-x64";
-          hash = "sha256-T+VksjSCzWJ2caJBeEJJjJey9ytfijpO+4CU5iPfejM=";
+          hash = "sha256-uGTV7FkTN2G5Wzh60oN3pU2lRZtaqn5aNOgrBZU1C6M=";
         };
         aarch64-linux = {
           url = "https://github.com/can1357/oh-my-pi/releases/download/v${version}/omp-linux-arm64";
-          hash = "sha256-yTXV0l62d6Ylk0+B9LIbD/BbZEAP656Q8C8O/jlnY4Y=";
+          hash = "sha256-OlNJvWz+ixxfQo6hCv7vlHMMeSOi5K5LljdivZQVG24=";
         };
       };
 
