@@ -3,11 +3,11 @@
     "codegraph-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1785923444,
-        "narHash": "sha256-L2UrAofcWIUBi6TP5sdQR8F3zG+L5Dw1XXi3eFYAmvo=",
+        "lastModified": 1786176445,
+        "narHash": "sha256-h4AbXlRWLk+9Z68F5sX6kMDW3VrGJvIozeSHjjDBAvM=",
         "owner": "TontineTrust",
         "repo": "codegraph",
-        "rev": "59a842c943cb960815338876c32da916615e6bd7",
+        "rev": "fc6f92eb616c693556e8ae43c6c7ea4c66ee69c3",
         "type": "github"
       },
       "original": {
@@ -37,11 +37,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1784356753,
-        "narHash": "sha256-12KrbMiWLcf8m7pCvAtZh1ZrgF85ZXDXvfR/fWTKy84=",
+        "lastModified": 1785967620,
+        "narHash": "sha256-IItrdb7Puk05RqOBWZYFC5X6Wl1sJmCfh5MWVHw5iMM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "61b7c44c4073f0b827768aff0049561b5110ea5a",
+        "rev": "b7c2ada94fe99c15b0dbcf4d11fd7850b957a436",
         "type": "github"
       },
       "original": {
