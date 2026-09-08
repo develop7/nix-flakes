@@ -8,7 +8,7 @@
       systems = [ "x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" ];
       forAllSystems = nixpkgs.lib.genAttrs systems;
       pkgsFor = system: import nixpkgs { inherit system; };
-      version = "0.7.0";
+      version = "0.9.3";
     in {
       packages = forAllSystems (system:
         let pkgs = pkgsFor system; in
@@ -20,7 +20,7 @@
             # Release tarball from GitHub — prebuilt dist/, no source build needed.
             src = pkgs.fetchurl {
               url = "https://github.com/PrimeIntellect-ai/prime-agent/releases/download/v${version}/prime-agent-${version}.tgz";
-              hash = "sha256-iLZXhRjHLNUaglvIDyjg/vmmTGfeSn1v16/Xyhs02gs=";
+              hash = "sha256-znEEk4mHd3CqMbm+ZMRzaFqGFZrbvSRmvUPkqREyQvE=";
             };
 
             # Tarball ships no package-lock.json; overlay the vendored one so
@@ -29,9 +29,8 @@
               cp ${./package-lock.json} package-lock.json
             '';
 
-            # Set by buildNpmPackage from the lockfile; placeholder until first
-            # `nix build` reports the correct hash (see Verification).
-            npmDepsHash = "sha256-/I4tXx3EXuu/NdDUsg16hDKCV8rblf/fRppjELlactU=";
+            # Hash of the npm dependency closure from package-lock.json.
+            npmDepsHash = "sha256-DRULMewb1LCEs0o9f3ACTgWdR6CqM0H/6D96c37hS30=";
 
             # dist/ ships prebuilt in the tarball; no build step.
             dontNpmBuild = true;
