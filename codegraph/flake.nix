@@ -31,7 +31,7 @@
             inherit version;
             src = codegraph-src;
 
-            npmDepsHash = "sha256-5K5Lqdhh58JLJntNsvEBZQTuLOQxkT+uCLdY6EzEG9E=";
+            npmDepsHash = "sha256-J8viY38M/loCoJmpxEOIApN6cpf6sU2aa80knVNRSvI=";
 
             nodejs = nodejs;
 
