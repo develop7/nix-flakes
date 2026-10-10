@@ -6,19 +6,25 @@
     flake-utils.url = "github:numtide/flake-utils";
   };
 
-  outputs = { self, nixpkgs, flake-utils }:
-    flake-utils.lib.eachDefaultSystem (system:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      flake-utils,
+    }:
+    flake-utils.lib.eachDefaultSystem (
+      system:
       let
         pkgs = import nixpkgs {
           inherit system;
           config.allowUnfree = true;
         };
 
-        version = "263.2689.0";
+        version = "263.6379.0";
 
         src = pkgs.fetchurl {
           url = "https://download.jetbrains.com/language-server/intellij-server/${version}/intellij-server-${version}.tar.gz";
-          sha256 = "sha256-v0qkdKh0mcw79whuZNBfnEFA9UZJVvvVdK3MLUw+QWI=";
+          sha256 = "sha256-dSnMcz1KAg4cE2kYOy9g4TXIW48HS78n0UdqWns4OcM=";
         };
 
         # Native .so dependencies discovered via objdump -p on all .so files in the tarball.
@@ -79,5 +85,6 @@
         devShells.default = pkgs.mkShell {
           packages = [ self.packages.${system}.default ];
         };
-      });
+      }
+    );
 }
